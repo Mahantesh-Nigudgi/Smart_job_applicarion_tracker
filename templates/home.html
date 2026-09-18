@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<center>
+    <div class="card card-body" style="width: 1500px;  align-items:center; border-color: black; background-color:black; color:aliceblue; ">
+        <h1>MY JOB APPLICATIONS </h1>
+    </div>
+    <br>
+    <div class="card card-body" style="width: 1500px;  align-items:center; border-color: black;  ">
+        {% if not form %}
+            <br><br>
+            <h3> NO JOB APPLICATION FOUND </h3>
+            
+        {% else %}
+            <br>
+            {% for i in form %}
+                <div class="card card-body" style="border-color: black; width:500px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Company Name : {{ i.company_name }}</b>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Job Title : {{ i.job_title }}</b> 
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Location : {{ i.location }}</b>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Application Date : {{ i.application_date }}</b>  
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Status : {{ i.status }}</b>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Salary : {{ i.salary }} LPA </b>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Desgination : {{ i.desgination }}</b>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="{% url 'edit' i.id %}"><input type="button" value="EDIT" class="btn btn-primary"></a> 
+                            <a href="{% url 'delete_' i.id %}"><input type="button" value="DELETE" class="btn btn-danger"></a>
+                        </div>
+                    </div>
+                </div>    
+                <br>
+            {% endfor %}
+            <br>
+        {% endif %}
+        <br>
+        <a href="{% url 'add_job' %}"><input type="submit" value="ADD NEW JOB APPLICATION " class="btn btn-success"></a>
+    </div>
+</center>
+{% endblock %}

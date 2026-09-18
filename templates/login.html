@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center>
+<div class="container">
+    <div class="jumbotron">
+        <br>
+        <br>
+        <div class="card card-body" style="background-color: black; color:white;">
+            <h1>LOGIN PAGE</h1>
+            {{ error }}
+            <br><br>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="username">USERNAME</label>
+                <input type="text" name="username" id="username">
+                <br><br>
+                <label for="password">PASSWORD</label>
+                <input type="password" name="password" id="password">
+                <br><br>
+                <a href="#"><input type="submit" value="LOGIN" class="btn btn-success"></a>
+                <br><br>
+                Don't have an account ? <a href="{% url 'registration' %}">Register</a>
+            </form>
+        </div>
+    </div>
+</div>
+</center>
+{% endblock %}

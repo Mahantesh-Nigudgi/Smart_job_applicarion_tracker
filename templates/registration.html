@@ -1,0 +1,52 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <br><br>
+            <div class="card card-body" style="background-color: black; color:white;">
+                {% if registered %}
+                <center>
+                    <h3>Thank you For registration </h3>
+                    <br>
+                    <a href="{% url 'user_login' %}"><input type="button" value="LOGIN" class="btn btn-primary"></a>
+                </center>
+                {% else %}
+                    <div class="card-card-body">
+                        <h1>Registeration Form</h1>
+                        <form method="POST">
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{ form.first_name | as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{ form.last_name | as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{ form.username | as_crispy_field }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{ form.email | as_crispy_field }}
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        {{ form.password | as_crispy_field }}
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <input type="submit" value="Register" class="btn btn-success">
+                                </div>
+                        </form>
+                    </div>
+                    <br><br>
+                    <center>You already have an account? <a href="{% url 'user_login' %}">Login</a></center>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

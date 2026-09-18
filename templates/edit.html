@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="card card-body">
+            <h2 style="text-align: center;">UPDATE PAGE</h2>
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <div class="card card-body">
+                    <div class="row" style="text-align: center;">
+                        <div class="mb-3">
+                            Company Name : {{ form.company_name}}
+                        </div>
+                        <div class="mb-3">
+                            Job Title : {{ form.job_title}}
+                        </div>
+                        <div class="mb-3">
+                            Salary : {{ form.salary}} LPA
+                        </div>
+                        <div class="mb-3">
+                            Application Date : {{ form.application_date}}
+                        </div>
+                        <div class="mb-3">
+                            Desgination : {{ form.desgination}} 
+                        </div>
+                        <div class="mb-3">
+                            Location : {{ form.location}}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label d-block">Status : </label>
+                            <div class="btn-group" role="group" aria-label="Job status">
+                              <input type="radio" class="btn-check" name="status" id="applied" value="Applied" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="applied">Applied</label>
+                            
+                              <input type="radio" class="btn-check" name="status" id="interview" value="Interview" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="interview">Interview</label>
+                            
+                              <input type="radio" class="btn-check" name="status" id="selected" value="Selected" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="selected">Selected</label>
+                            
+                              <input type="radio" class="btn-check" name="status" id="joined" value="Joined" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="joined">Joined</label>
+                            
+                              <input type="radio" class="btn-check" name="status" id="rejected" value="Rejected" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="rejected">Rejected</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">UPDATE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

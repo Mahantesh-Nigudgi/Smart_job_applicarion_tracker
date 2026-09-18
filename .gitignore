@@ -1,0 +1,11 @@
+myenv/
+venv/
+.venv/
+smart_job/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+staticfiles/
+
+Tracker/Tripgain/python 3.10/
