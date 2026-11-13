@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-fkv$%%!rpj7^s)e-h4(!4rxz=1*g*d^pljb7-hi8!ykga_v8es
 ALLOWED_HOSTS =[    
     'localhost',
     '127.0.0.1',
-    '.onrender.com',]
+    'smart-job-applicarion-tracker-1.onrender.com',]
 
 DEBUG = False
 
