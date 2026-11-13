@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com',
+]
 CRISPY_TEMPLATE_PACK='bootstrap5'
 CRIPSY_ALLOWED_TEMPLATE_PACKS='bootstrap5'
 
@@ -65,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Smart_Job_Application_Tracker.urls'
